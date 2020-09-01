@@ -14,8 +14,9 @@
 // limitations under the License.
 //
 
-cc_library_host_shared {
+cc_library {
     name: "libepoxy",
+    host_supported: true,
     cflags: ["-Wno-unused-parameter"],
     local_include_dirs: [
         "prebuilt-intermediates",
