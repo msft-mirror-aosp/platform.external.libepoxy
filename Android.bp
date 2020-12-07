@@ -32,4 +32,8 @@ cc_library {
         "src/dispatch_common.c",
         "src/dispatch_egl.c",
     ],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.virt",
+    ],
 }
