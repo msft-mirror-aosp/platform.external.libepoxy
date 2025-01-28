@@ -48,6 +48,7 @@ license {
 cc_library {
     name: "libepoxy",
     host_supported: true,
+    vendor_available: true,
     cflags: ["-Wno-unused-parameter"],
     local_include_dirs: [
         "prebuilt-intermediates",
@@ -55,7 +56,7 @@ cc_library {
     ],
     export_include_dirs: [
         "include",
-        "prebuilt-intermediates/include"
+        "prebuilt-intermediates/include",
     ],
     srcs: [
         "prebuilt-intermediates/src/egl_generated_dispatch.c",
@@ -63,6 +64,13 @@ cc_library {
         "src/dispatch_common.c",
         "src/dispatch_egl.c",
     ],
+    target: {
+        vendor: {
+            shared_libs: [
+                "libEGL",
+            ],
+        },
+    },
     apex_available: [
         "//apex_available:platform",
         "com.android.virt",
